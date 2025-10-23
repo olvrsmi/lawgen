@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legal Absurdity Generator</title>
+    <title>i guess we doin laws now</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
+        
 
         body {
             font-family: Arial, sans-serif;
@@ -41,6 +43,26 @@
         a:hover {
             text-decoration: none;
         }
+            #sentence span{
+                
+            }
+            .s-instrument{
+                font-style: italic;                
+            }
+            .s-article{
+
+            }
+            .s-adjective{
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 1.1em;                
+            }
+            .s-entity{
+               font-family: 'Brush Script MT', cursive;   
+               font-size: 1.41em;
+            }
+            .s-action{
+
+            }
     </style>
 </head>
 <body>
@@ -70,7 +92,7 @@
             'person',
             'corporation',
             'family',
-            'sovereign State',
+            'sovereign state',
             'united nations',
             'sovereign military order of malta',
             'european union',
@@ -93,7 +115,7 @@
 
             const article = ['a', 'e', 'i', 'o', 'u'].includes(adjective[0].toLowerCase()) ? 'an' : 'a';
             
-            return `A ${instrument} is void if ${article} ${adjective} ${entity} would ${action} it`;
+            return `A <span class="s-instrument">${instrument}</span> is void if <span class="s-article">${article}</span> <span class="s-adjective">${adjective}</span> <span class="s-entity">${entity}</span> would <span class="s-action">${action}</span> it`;
         }
 
         function generateId(indices) {
@@ -118,7 +140,7 @@
             const sentence = generateSentence(indices);
             const id = generateId(indices);
             
-            document.getElementById('sentence').textContent = sentence;
+            document.getElementById('sentence').innerHTML = sentence;
             
             if(updateHistory){
                 // Update URL without reload
